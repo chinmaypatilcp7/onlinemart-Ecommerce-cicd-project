@@ -1,0 +1,12 @@
+apiversion: v1
+kind: service
+metadat:
+  name: nodejs
+spec:
+  ports:
+    port: 5000
+    targerport: nodejs-port
+    protocol: TCP
+  selector:
+    app: nodejs
+  type: clusterIPS

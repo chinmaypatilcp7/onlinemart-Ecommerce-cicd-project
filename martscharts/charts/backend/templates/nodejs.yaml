@@ -1,0 +1,22 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs
+  labels:
+    app: nodejs
+spec:
+  replica: 1
+  selector:
+    matchlabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+     spec:
+      containers:
+        name: nodejs
+        image: chinmaypatilcp7/onlinemart-main
+        ports:
+          name: nodejs-port
+          containerport: 5000S 

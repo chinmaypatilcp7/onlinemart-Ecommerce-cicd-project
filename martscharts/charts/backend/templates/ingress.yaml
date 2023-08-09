@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: onlinemart.cnt.in
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+           name: main
+           port: 
+             number: 5000
+      - path: /webapi
+        pathType: Prefix
+        backend:
+          service:
+           name: books
+           port: 
+             number: 9000

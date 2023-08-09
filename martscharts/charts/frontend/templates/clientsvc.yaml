@@ -1,0 +1,12 @@
+apiversion: v1
+kind: service
+metadata:
+    name: client-service
+spec: 
+  ports:
+   - port: 4200
+     targetport: client-port 
+     protocol: TCP
+   selector: 
+    app:
+  type: clusterIP     

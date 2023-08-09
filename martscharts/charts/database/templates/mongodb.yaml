@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  labels:
+    app: mongo
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:4
+        ports:
+        - name: mongodb-port
+          containerPort: 27017
+        volumeMounts:
+            - name: mongo
+              mountPath: /data/db
+        env: 
+         - name: MONGO_INITDB_DATABASE
+           valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              key: mongodbname
+    
+      volumes:
+      - name: mongo
+        persistentVolumeClaim:
+          claimName: mongo 
+

@@ -1,0 +1,12 @@
+apiversion: v1
+kind: service
+metadate:
+   name: book
+spec:
+  ports:
+    port: 9000
+    targetport: book-port
+    protocol: TCP
+  selector:
+    app: book
+  type: clusterIp

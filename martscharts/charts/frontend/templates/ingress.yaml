@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-client
+spec:
+    - hosts: onlinemart.cnt.in
+  ingressClassName: nginx
+  rules:
+  - host: 
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+           name: client
+           port: 
+             number: 4200

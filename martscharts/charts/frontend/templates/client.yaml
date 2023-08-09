@@ -1,0 +1,22 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:
+      name: client
+      labels: 
+        app: client
+ spec: 
+    replicas: 1
+    selector: 
+      matchlabels:
+        app: client
+    template:
+      metadata:
+        labels:
+          app: client
+      spec:
+        containers:
+         - name: client
+           image: chinmaypatilcp7/onlinemart-clinet:latest
+           ports:
+            - name: client-port
+              containerport: 4200               

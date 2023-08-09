@@ -1,0 +1,22 @@
+apiversion: apps/v1
+kind: Deployment
+metadate:
+  name: book
+  matchlabels:
+    app: book
+spec:
+  replica: 1
+  selector:
+    matchlabels:
+      app: book
+  template:
+    metadata:
+      labels:
+        app: book
+    spec:
+      containers:
+        name: book
+        image: chinmaypatilcp7/onlinemarts-book
+        ports:
+          name: book-port
+          containerport: 9000
