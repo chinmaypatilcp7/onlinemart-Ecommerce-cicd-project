@@ -43,7 +43,7 @@
         stage('build image-book'){
             steps{
                 script{
-                    dockerimage=docker.build( bookRegistry +':$BUILD_NUMBER', "./javaapi/")
+                    dockerimage=docker.build( bookRegistry + ":$BUILD_NUMBER", "./javaapi/")
                 }
             }
         }
@@ -71,7 +71,7 @@
         stage('build image node'){
             steps{
                 script{
-                    dockerimage = docker.build( mainRegistry + ':$BUILD_NUMBER', "./nodeapi")
+                    dockerimage = docker.build( mainRegistry + ":$BUILD_NUMBER", "./nodeapi")
                 }
             }
         }
